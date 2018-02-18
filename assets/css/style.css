@@ -1,0 +1,43 @@
+body {
+    background: url('../images/forest-river.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    max-height: 100vh;
+    font-family: open sans
+
+}
+
+/* Content Container */
+.container {
+    max-width: 940px;
+    height: 90vh;
+    max-height: 100vh;
+    text-align: center;
+    margin: 5% auto;
+    background: rgba(0, 0, 0, 0.8);
+    display: block;
+    border-radius: 30px;
+}
+
+
+
+/* Page Title */
+.page-title{
+    color: antiquewhite;
+}
+
+h1{
+
+}
+
+/* Start Page */
+.start-button {
+    margin: 300px 0 ;
+}
+
+/* Time Remaining */
+
+/* Trivia Question */
+
+/* Answer Set */
