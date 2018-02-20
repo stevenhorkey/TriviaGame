@@ -2,17 +2,94 @@ var game = {
     variables : {
         correctAnswers : 0,
         incorrectAnswers : 0,
+        alreadyDone : [],
+        random : 0
     },
     questions : [
         {
-            question: "What color is a fire truck?",
+            question : "How does an enlightened one return to the ordinary world?",
+            correctAnswer : "A broken mirror never reflects again; fallen flowers never go back to the old branches.",
+            correctImg : "https://media.giphy.com/media/3xIxziWvKoRSsCPweX/giphy.gif",
+            answers : ["A broken mirror never reflects again; fallen flowers never go back to the old branches.","white","pink","purple"]
+        },
+        {
+            question: "What is the sound of one hand clapping?",
             correctAnswer : "black",
-            correctImg : "",
+            correctImg : "https://media.giphy.com/media/26gs6Y4Mke6i0MUi4/giphy.gif",
             answers : ["black","white","pink","purple"]
         },
         {
-            question: "What color is a cop car?",
+            question: "When the many are reduced to one, to what is the one reduced?",
             correctAnswer : "black",
+            correctImg : "https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "What is the way?",
+            correctAnswer : "An open-eyed man falling into the well.",
+            correctImg : "https://media.giphy.com/media/23BST5FQOc8k8/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "Why do you not enter?",
+            correctAnswer : "I do not see myself as outside. Why enter?",
+            correctImg : "https://media.giphy.com/media/eXg8Ij7JgnyDu/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "What is the colour of wind?",
+            correctAnswer : "black",
+            correctImg : "https://media.giphy.com/media/cKmwAbwsqiQBG/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "What is Buddha?",
+            correctAnswer : "This flax weighs three pounds.",
+            correctImg : "https://media.giphy.com/media/7ihrrsltW7wHe/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "What is the sound of one hand clapping?",
+            correctAnswer : "black",
+
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "Why is philosophy like heaping up snow in a silver bowl?",
+            correctAnswer : "black",
+            correctImg : "https://media.giphy.com/media/zmXtqmGUf8uhW/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "All is under the law of change. Why?",
+            correctAnswer : "In the morning it was raining now the sun's bright.",
+            correctImg : "https://media.giphy.com/media/U5EbTzI11iWSA/giphy.gif",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "You attain enlightenment through intense practice but it doesn't change, it remains.",
+            correctAnswer : "Stand up, run around ... ",
+            correctImg : "https://media.giphy.com/media/Sux3kje9eOx1e/giphy.gif",
+            answers : ["Stand up, run around ... ","white","pink","purple"]
+        },
+        {
+            question: "What is it that even an explorer or scientist cannot evade?",
+            correctAnswer : "In the morning it was raining now the sun's bright.",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "All is under the law of change. Why?",
+            correctAnswer : "In the morning it was raining now the sun's bright.",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "All is under the law of change. Why?",
+            correctAnswer : "In the morning it was raining now the sun's bright.",
+            answers : ["black","white","pink","purple"]
+        },
+        {
+            question: "All is under the law of change. Why?",
+            correctAnswer : "In the morning it was raining now the sun's bright.",
             answers : ["black","white","pink","purple"]
         },
     ],
@@ -21,16 +98,32 @@ var game = {
             // Creates Start Button
             var startButton = $("<button></button>").addClass('start-button').html("<h3>Start Game!</h3>");
             $('.button').append(startButton);
+            // Sets scores to 0
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+            alreadyDone = [];
             // When start is clicked, game starts
             $('.start-button').on("click", function(){
                 $('div').off("click");
-                game.functions.nextQuestion();
+                $('.start-button').remove();
+                game.functions.chooseQuestion();
             });
         },
-        nextQuestion : function(){
-            $('.start-button').remove();
-            // Picks a random number
-            var random = Math.floor(Math.random() * game.questions.length);
+        chooseQuestion : function(){
+            $('.section').children().remove();
+            random = Math.floor(Math.random() * game.questions.length);
+            alreadyDone.push(random);
+            
+            for(var i = 0; i < game.questions.length; i++){
+                if(alreadyDone[i] !== random){
+                    this.displayQuestion(random)
+                } else {
+                    this.chooseQuestion;
+                }
+            }
+        },
+        displayQuestion : function(){
+            
             // Picks and displays/logs the random question
             var questionPick = game.questions[random].question;
             $('.question').append("<span></span>").addClass('.current-question').text(questionPick);
@@ -44,18 +137,34 @@ var game = {
                 $('.answers').append(temp);
             }
 
+            // When user clicks on a possible answer, this checks if it is correct and if so, adds one to the correct answers score. If not, it adds one to the incorrect answers score. Eitherway the correct answer is displayed.
             $('.possible-answer').on("click",function(){
-                if(this !== game.questions[random].correctAnswer){
+                clearTimeout(timeOut);
+                if($(this).text() === game.questions[random].correctAnswer){
                     console.log("nope")
-                    console.log(this)
+                    console.log($(this).text());
+                    correctDisplay();
+                    $('.question').text("Correct!");
+                    correctAnswers++
                 } else{
-                    $('.possible-answers').remove();
-                    $('.current-question').text("Correct!");
-                    $('.answers').append("<img/>").attr('src',game.questions[random].correctImg);
+                    correctDisplay();
+                    $('.question').text("Incorrect! The correct answer was: " + game.questions[random].correctAnswer);
+                    incorrectAnswers++
                 }
             })
 
+            function correctDisplay() {
+                $('.question').text("The correct answer was: " + game.questions[random].correctAnswer);
+                $('.possible-answer').remove();
+                $('.section').children().remove();
+                var image = $('<img/>').attr('src',game.questions[random].correctImg);
+                $('.answers').append(image);
+                setTimeout(game.functions.chooseQuestion,1000 * 5);
+            }
 
+            var timeOut = setTimeout(correctDisplay, 1000 * 5);
+            timeOut;
+                
         },
         endScreen : function(){
 

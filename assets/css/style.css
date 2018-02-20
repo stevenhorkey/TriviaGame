@@ -1,10 +1,12 @@
 body {
-    background: url('../images/forest-river.jpg');
+    background: url('https://www.metmuseum.org/toah/images/hb/hb_1992.8.1,2.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: none;
     max-height: 100vh;
-    font-family: open sans
+    font-family: 'Nothing You Could Do', cursive;
+
+    color: antiquewhite;
 
 }
 
@@ -34,6 +36,7 @@ h1{
 /* Start Page */
 .start-button {
     margin: 300px 0 ;
+    background-color: black;
 }
 
 /* Time Remaining */
@@ -41,3 +44,9 @@ h1{
 /* Trivia Question */
 
 /* Answer Set */
+img {
+    max-width: 500px;
+    width: 90%;
+    height: 350px;
+}
+
