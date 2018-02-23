@@ -1,5 +1,5 @@
 body {
-    background: rgb(245, 238, 229);
+    background-color: rgb(245, 238, 229);
     background-position: center;
     background-size: cover;
     background-repeat: none;
@@ -7,12 +7,13 @@ body {
     font-family: 'Bellefair', serif;
     color: rgb(22, 22, 22);
     width: 100%;
+    opacity: 0.8;
 }
-
 /* Content Container */
 .container {
-    max-width: 100%;
-    height: 60vh;
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
     text-align: left;
     margin: 10% auto;
     background-position: center;
@@ -20,68 +21,123 @@ body {
     display: block;
     border-radius: 5px;
 }
-
-
-
 /* Page Title */
-.page-title{
+.page-title { 
+    text-decoration: none;
+    color: rgba(88, 22, 22, 1.0);
+    -webkit-transition: color 1s;
+    transition: color 1s;
+    display: inline;
 }
-
-h1{
-    /* font-style: italic; */
-}
-
-/* Start Page */
-.start-button {
-    margin-top: 270px;
-    background-color: rgb(88, 22, 22);
+.page-title:hover{
+    text-decoration: none;
     color: rgb(245, 238, 229);
-    border-radius: 10px;
-
+}
+h1 {
+    display: inline;
+}
+a span{
+    color: rgb(245, 238, 229);
+    font-size: 20px;
+}
+/* Start Page */
+button {
+    margin-top: 270px;
+    color: rgb(88, 22, 22);
+    background-color: rgba(88, 22, 22, 0);
+    border: rgb(88, 22, 22) solid 1px;;
+    border-radius: 12px;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
 }
 
-/* Time Remaining */
-
-/* Trivia Question */
-
+button:hover{
+    color: rgb(245, 238, 229);
+    background-color: rgba(88, 22, 22, 1);
+}
 /* Images */
 img {
     max-width: 500px;
     width: 100%;
     height: 300px;
 }
-
 .enso {
     width: 300px;
     height: 300px;
     opacity: 0.2;
+    left: 0;
+    right: 0;
+    margin: auto;
     position: absolute;
-    left: 200px;
+    z-index: -100;
+    overflow: hidden;
+    /* display: none; */
 }
-
-
+/* Text */
 .text-section{
     margin: 20px 0 0 30px;
-    font-size: 22px;
+    font-size: 24px;
+    text-align: left;
 }
 
 .section{
     margin: 10px 0;
 }
-
+/* Possible Answers */
+ul{
+    list-style-type: cjk-ideographic;
+    list-style-position: inside;
+    text-align: left !important;
+}
+li{
+    border: 1px rgb(88, 22, 22) solid;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    padding: 3px 6px;
+}
 .possible-answer{
     margin: 15px 0 15px 15px;
+    transition-property: font-size;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+    cursor: pointer; 
+    text-align: left;    
 }
-
+.possible-answer:hover{
+    font-size: 101%;
+}
 .question{
     color: rgb(88, 22, 22);
     color: 24px;
 }
-
-.image{
-    /* width: 100%; */
+/* Clock */
+.clock {
+    font-size: 14vw;
+    text-align: center;
 }
 
-.clock {
-    font-size: 18vw;
+@media screen and (max-width: 991px){
+    * {
+        text-align: center;
+    }
+    .containter{
+        width: 100%;
+    }
+    .text-section,.possible-answer{
+        margin-left: 0;
+    }
+    ul{
+        padding-left: 0px;
+    }
+    .possible-answer{
+        margin: 15px auto;
+    }
+    
+}
+
+@media screen and (min-width: 1200px){
+    .clock{
+        font-size: 200px;
+    }
 }

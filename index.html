@@ -14,23 +14,26 @@
     
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <!-- JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/javascript/app.js" ></script>
 </head>
 <body>
+    <!-- Background Img -->
+    <img class="enso" src="http://www.ensoseminars.com/media/images/default_talk_image.png" />
     <div class="container">
         <!-- Page Title -->
         <div class="row">
-            <div class="col-xs-12  ">
-                <h1 class="page-title">Zen Koan Trivia Game</h1>
+            <div class="col-xs-12 title">
+                <a href="index.html" class="page-title"><h1>Zen Koan Trivia Game</h1></a>
             </div>
         </div>
         <!-- Time Remaining -->
         <div class="row">
             <div class="col-md-6 col-xs-12">
-                <!-- Background Img -->
-                <img class="enso" src="http://www.ensoseminars.com/media/images/default_talk_image.png" />
                 <div class="text-section">
                     <!-- Question Display -->
                     <div class="question section">
@@ -45,6 +48,8 @@
                         <ul class="answers-list">
 
                         </ul>
+                        <div class="final correctCount"></div>
+                        <div class="final incorrectCount"></div>
                     </div>
                 </div>
                 <!-- Start Button -->
