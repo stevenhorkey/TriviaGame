@@ -218,7 +218,7 @@ var game = {
                 image.addClass('correctImg');
                 $('.image').append(image);
                 $('div').off("click");
-                setTimeout(game.functions.chooseQuestion,1000 * 0.5);
+                setTimeout(game.functions.chooseQuestion,1000 * 4);
             }
             // If no answer is choosen, this setTimeout never gets cleared and leads to the correct display and an increment in incorrect answers.
             var timeOut = setTimeout(correctDisplay, 1000 * questionTime);
