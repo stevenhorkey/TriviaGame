@@ -42,13 +42,13 @@ a span{
 }
 /* Start Page */
 button {
-    margin-top: 270px;
+    margin-top: 12px;
     color: rgb(88, 22, 22);
     background-color: rgba(88, 22, 22, 0);
     border: rgb(88, 22, 22) solid 1px;;
     border-radius: 12px;
-    -webkit-transition: color 0.5s, background-color 0.5s;
-    transition: color 0.5s, background-color 0.5s;
+    -webkit-transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 button:hover{
@@ -88,6 +88,7 @@ ul{
     list-style-type: cjk-ideographic;
     list-style-position: inside;
     text-align: left !important;
+    padding-left: 0;
 }
 li{
     border: 1px rgb(88, 22, 22) solid;
@@ -97,15 +98,18 @@ li{
     padding: 3px 6px;
 }
 .possible-answer{
-    margin: 15px 0 15px 15px;
+    margin: 15px 0 15px 0px;
     transition-property: font-size;
     transition-duration: 0.2s;
     transition-delay: 0s;
     cursor: pointer; 
     text-align: left;    
+    -webkit-transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
 }
 .possible-answer:hover{
-    font-size: 101%;
+    color: rgb(245, 238, 229);
+    background-color: rgba(88, 22, 22, 1);
 }
 .question{
     color: rgb(88, 22, 22);

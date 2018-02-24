@@ -96,13 +96,14 @@ var game = {
         {
             question: "Could I ever speak the same sentence again before your eye's opened for the first time?",
             correctAnswer : "Maybe",
-            correctImg : "http://37.media.tumblr.com/491dc6f017786ed1ea192bd9b4289aae/tumblr_n6vuiwKOoA1rat0tqo1_500.gif",
+            correctImg : "https://s-media-cache-ak0.pinimg.com/originals/b8/f5/76/b8f576804829af4c2e0547bf25093a53.jpg",
             answers : ["Maybe","A rather high octave","The dimensions of bent steel","Once upon a time"]
         },
     ],
     functions : {
         // Initializes the game and all functions within it
         initGame : function(){
+            $('.koan-info').show();
             // Sets scores and called questions to 0
             correctAnswers = 0;
             incorrectAnswers = 0;
@@ -116,6 +117,7 @@ var game = {
             $('.image').show();
             // When start is clicked, game starts
             $('button').on("click", function(){
+                $('.koan-info').hide();
                 $('div').off("click");
                 $('button').hide();
                 game.functions.chooseQuestion();
@@ -216,7 +218,7 @@ var game = {
                 image.addClass('correctImg');
                 $('.image').append(image);
                 $('div').off("click");
-                setTimeout(game.functions.chooseQuestion,1000 * 5);
+                setTimeout(game.functions.chooseQuestion,1000 * 0.5);
             }
             // If no answer is choosen, this setTimeout never gets cleared and leads to the correct display and an increment in incorrect answers.
             var timeOut = setTimeout(correctDisplay, 1000 * questionTime);
@@ -234,7 +236,7 @@ var game = {
             $('button').on("click", function(){
                 $('div').off("click");
                 $('button').remove();
-                $('.question').hide()
+                $('.question').text("")
                 $('.image').hide()
                 game.functions.initGame();
             });
