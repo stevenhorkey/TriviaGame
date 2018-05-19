@@ -34,4 +34,4 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 * The wonders of JQuery
-* Inspiration from the beautfiul tradition of Zen Buddhism
+* Inspiration from the beautiful tradition of Zen Buddhism
